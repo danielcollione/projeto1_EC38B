@@ -24,6 +24,10 @@ a {
 
 /* Header */
 
+body{
+    background-color: rgb(245, 245, 245);
+}
+
 header {
     position: fixed;
     top: 0;
@@ -164,4 +168,39 @@ header {
 
 .iphone-11-pro {
     border-top: none;
+}
+
+footer{
+    font-family: sans-serif; 
+}
+
+.section-footer {
+    color: rgb(138, 130, 130);  
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 0 22px;
+}
+
+.item-lista li{
+    list-style-type: none;
+    margin: 10px;
+    font-size: 13px;
+}
+
+.item-lista li a{
+    color: black;
+}
+
+.section-footer2{
+    margin: 10px;
+    color: rgb(167, 157, 157);  
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 0 22px;
+    margin-bottom: 20px;
+}
+
+.section-footer2 p{
+    margin: 10px;
+    font-size: 13px;
 }
