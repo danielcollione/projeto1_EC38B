@@ -171,6 +171,10 @@ header {
 }
 
 footer{
+    top: 0;
+    z-index: 1400;
+    height: 4.4rem;
+    width: 100%;
     font-family: sans-serif; 
 }
 
