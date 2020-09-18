@@ -1,0 +1,1 @@
+Loja Pokemon, pequeno projeto desenvolvido em ReactJs, na finalidade de mostrar dois modelos de um mini-ecommerce.
