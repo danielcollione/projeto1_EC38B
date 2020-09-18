@@ -5,6 +5,9 @@ import carrinho from "./lojaPokemon/carrinho";
 import Pokemons from "./lojaPokemon/pokemons";
 import { Container, Row, Col } from "react-bootstrap";
 import Carrinho from "./lojaPokemon/carrinho";
+import SectionOne from './htmlApple/sectionone';
+import SectionTwo from './htmlApple/sectiontwo';
+import Footer from './htmlApple/footer';
 
 function LojaPokemon() {
   const [carrinho, setCarrinho] = useState({ pokemons: [] });
@@ -40,7 +43,10 @@ function LojaPokemon() {
   return (
     <div>
       <MenuPokemon />
+      <SectionOne/>
+      <SectionTwo/>
       <Container fluid>
+        
         <Row>
           <Col sm={8}>
             <Pokemons
@@ -55,7 +61,9 @@ function LojaPokemon() {
             />
           </Col>
         </Row>
+        
       </Container>
+      <Footer/>
     </div>
   );
 }

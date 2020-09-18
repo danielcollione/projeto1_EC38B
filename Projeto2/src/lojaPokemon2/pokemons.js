@@ -42,6 +42,7 @@ export default function Pokemons(props) {
         </Form>
       </Navbar>
       <div style={{width: '100%', height: '800px' , overflowY: 'scroll', textAlign: "center"}}>
+        
       <ListPokemon
             exibirMensagem={exibirMensagem}
             adicionarPokemon={props.adicionarPokemon}
