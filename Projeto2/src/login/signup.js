@@ -50,11 +50,11 @@ export default function Login () {
     <div className="user-login">
     <h1 className="user-login__title">Cadastre-se</h1>
     <form autoComplete="nope" onSubmit={onSubmit}>
-    {/* <div className="user-login__form-control">
+    <div className="user-login__form-control">
         <label htmlFor="email">Nome</label>
         <input id="name" type="text" name="name" autoComplete="off" onChange={onChange}
             value={values.name}/>
-      </div> */}
+      </div>
       <div className="user-login__form-control">
         <label htmlFor="email">E-mail</label>
         <input id="email" type="text" name="email" autoComplete="off" onChange={onChange}

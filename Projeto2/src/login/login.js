@@ -46,9 +46,7 @@ export default function Login () {
   return (
     <div className="user-login">
     <h1 className="user-login__title">Acessar a Loja</h1>
-   
 
-    
     <form autoComplete="nope" onSubmit={onSubmit}>
       <div className="user-login__form-control">
         <label htmlFor="email">E-mail</label>
