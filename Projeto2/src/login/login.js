@@ -11,6 +11,7 @@ export default function Login () {
 
   const [values, setValues] = useState(initialState);
   const history = useHistory();
+  const [error,setError] = useState(0)
 
   function onChange(event){
     const {value, name} = event.target;
@@ -32,12 +33,15 @@ export default function Login () {
 
   async function onSubmit(event) {
     event.preventDefault();
+
+    
     const token = await login(values);
     console.log('Token de autenticação: ', token);
     if(token){
       return history.push('/lojapokemon');
       
     } else {
+      setError('Houve um problema de autenticação')
       console.log('houve um problema de autenticação');
     }
     
@@ -58,6 +62,7 @@ export default function Login () {
         <input id="password" type="password" name="password" onChange={onChange}
             value={values.password}/>
       </div>
+      {error === 0 ? null : <p style={{ color: "red" }}>{error}</p>}
       <button
         type="submit"
         theme="contained-green"
