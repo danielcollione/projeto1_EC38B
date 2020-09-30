@@ -33,17 +33,21 @@ export default function Login () {
 
   async function onSubmit(event) {
     event.preventDefault();
-
-    
-    const token = await login(values);
-    console.log('Token de autenticação: ', token);
-    if(token){
-      return history.push('/lojapokemon');
-      
+    if(values.email === undefined || values.email.length < 5){
+      setError("Preencha um email válido!");
     } else {
-      setError('Houve um problema de autenticação')
-      console.log('houve um problema de autenticação');
+      const token = await login(values);
+      console.log('Token de autenticação: ', token);
+      if(token){
+        return history.push('/lojapokemon');
+        
+      } else {
+        setError('Houve um problema de autenticação')
+        console.log('houve um problema de autenticação');
+      }
     }
+    
+    
     
   }
 

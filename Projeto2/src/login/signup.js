@@ -10,7 +10,9 @@ function initialState() {
 export default function Login() {
   const [values, setValues] = useState(initialState);
   const [error, setError] = useState(0);
+  const [errorCreate, setErrorCreate] = useState(0);
   const [errorPassword, setErrorWord] = useState(0);
+  const [success, setSuccess] = useState(0)
   const history = useHistory();
 
   function onChange(event) {
@@ -24,7 +26,7 @@ export default function Login() {
 
   async function signup({ user, password }) {
     try {
-      const token = await axios.post("https://reqres.in/api/create", values);
+      const token = await axios.post("https://reqres.in/api/register", values);
       console.log(token);
       return token;
     } catch (err) {
@@ -36,17 +38,23 @@ export default function Login() {
     event.preventDefault();
     console.log(values.email);
     console.log(values.password);
-    if (values.email === undefined) {
-      setError("Preencha email para cadastrar!");
-      console.log("Preencha email para cadastrar!");
+    if (values.email === undefined || values.email.length < 5) {
+      setError("Preencha um email válido!");
     } else if (values.password === "") {
       setErrorWord("Preencha senha para cadastrar!");
     } else {
       const token = await signup(values);
-      if (token) {
-        return history.push("/login");
+      console.log(token);
+      if (token !== undefined) {
+        setError('')
+        setSuccess('')
+        setSuccess('Usuário cadastrado com sucesso!')
+        setTimeout(() => {return history.push("/login");}, 2000)
+        
       } else {
-        console.log("usuario nao cadastrado");
+        setError('')
+        setSuccess('')
+        setErrorCreate("Não foi possivel criar um usuário!");
       }
     }
   }
@@ -55,17 +63,6 @@ export default function Login() {
     <div className="user-login">
       <h1 className="user-login__title">Cadastre-se</h1>
       <form autoComplete="nope" onSubmit={onSubmit}>
-        <div className="user-login__form-control">
-          <label htmlFor="email">Nome</label>
-          <input
-            id="name"
-            type="text"
-            name="name"
-            autoComplete="off"
-            onChange={onChange}
-            value={values.name}
-          />
-        </div>
         <div className="user-login__form-control">
           <label htmlFor="email">E-mail</label>
           <input
@@ -89,6 +86,8 @@ export default function Login() {
           />
         </div>
         {errorPassword === 0 ? null : <p style={{ color: "red" }}>{errorPassword}</p>}
+        {errorCreate === 0 ? null : <p style={{ color: "red" }}>{errorCreate}</p>}
+        {success === 0 ? null : <p style={{ color: "green" }}>{success}</p>}
         <button
           type="submit"
           theme="contained-green"
