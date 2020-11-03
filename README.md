@@ -5,6 +5,6 @@ O aplicativo criado tem como recurso, mostrar as funcionalidades de uma aplicaç
 O app também consegue fazer a criação de usuários normais e admins. Os usuarios normais conseguem visualizar os pokemons cadastrados na loja pelos usuarios admin, e tambem conseguem tambem fazer a simulação da compra dos pokemons. Os usuarios admin tem a opção da compra e da criação dos pokemons na loja.
 
 
-Considerações: 
+# Considerações: 
  1 - na pasta Projeto 2 encontra-se o front-end da aplicação, na pasta Projeto 3 encontra-se a Api back-end da Aplicação.
  2 - para criar usuarios Admin é necessário colocar no endereço: localhost:PORT/admin, o app redirecionará para a pagina de criação de usuários admin.
