@@ -2,6 +2,7 @@ const express    = require('express');
 const bodyParser = require('body-parser');
 const config     = require('config');
 const cors       = require('cors');
+require('dotenv').config()
 
 module.exports = () => {
   const app = express();
@@ -12,7 +13,7 @@ module.exports = () => {
 
 
   // SETANDO VARIÁVEIS DA APLICAÇÃO
-  app.set('port', process.env.PORT || config.get('server.port'));
+  app.set('port', process.env.APP_PORT || config.get('server.port'));
   
   // MIDDLEWARES
   app.use(bodyParser.json());
