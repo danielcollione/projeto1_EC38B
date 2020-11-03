@@ -7,11 +7,25 @@ function initialState(){
   return { email: '', password: ''};
 }
 
+
+
 export default function Login () {
 
   const [values, setValues] = useState(initialState);
   const history = useHistory();
   const [error,setError] = useState(0)
+    
+  window.onload = initPage;
+
+  async function initPage(){
+    let userLogado = await sessionStorage.getItem('UserLogado')
+    console.log("userLogado =>", userLogado)
+    
+    if(userLogado != 'null' && userLogado){
+      
+      return history.push('/lojapokemon');
+    }
+  }
 
   function onChange(event){
     const {value, name} = event.target;
@@ -24,8 +38,11 @@ export default function Login () {
 
   async function login({ user, password}){
     try{
-      const token = await axios.post('https://reqres.in/api/login', values);
-      return token
+      // const token = await axios.post('https://reqres.in/api/login', values);
+      const res = await axios.post('http://localhost:4200/api/login', values);
+      console.log('values => ', values);
+      console.log('token.data => ', res.data);
+      return res.data
     } catch(err){
       console.log('usuario nao encontrado');
     }
@@ -36,14 +53,19 @@ export default function Login () {
     if(values.email === undefined || values.email.length < 5){
       setError("Preencha um email válido!");
     } else {
-      const token = await login(values);
-      console.log('Token de autenticação: ', token);
-      if(token){
+      const user = await login(values);
+      console.log('Token de autenticação: ', user.token);
+      if(user.token != undefined){
+        user.password = '';
+        console.log('user => ', user);
+        
+        sessionStorage.setItem('UserLogado', user.email);
+        sessionStorage.setItem('UserTipo', user.tpUser);
         return history.push('/lojapokemon');
         
       } else {
-        setError('Houve um problema de autenticação')
-        console.log('houve um problema de autenticação');
+        
+        setError('Usuário não foi encontrado.');
       }
     }
     
