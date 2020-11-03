@@ -1,0 +1,17 @@
+Para executar o projeto, primeiramente:
+1) instale o mongodb e o mongoose
+	> npm install -S mongodb
+	> npm install -S mongoose
+2)Crie uma pasta chamada 'data' dentro dentro da pasta api
+2) abra o prompt e vá até a pasta bin da instalação do mongodb, um exemplo de posição default dessa pasta "C:\Program Files\MongoDB\Server\4.4\bin"
+3) execute o comando 
+	> mongod --dbpath D:\Documentos\UTFPR\2020-2\Web\projeto1_EC38B\Projeto3\api\data e execute o comando
+4) com sucesso, abra outro prompt e vá até a pasta bin do mongodb e execute o comando
+	> mongo
+Com isso conseguiremos criar tabelas e usar o banco
+caso ocorra algum erro, consulte o site https://www.luiztools.com.br/post/tutorial-nodejs-com-mongodb/
+
+=== Após Executar o Mongo ===
+
+1) Para criar um usuario admin, terá que acessar a rota /api/adm/register para cria-lo
+
