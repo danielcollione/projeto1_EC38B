@@ -5,7 +5,7 @@ Para executar o projeto, primeiramente:
 2)Crie uma pasta chamada 'data' dentro dentro da pasta api
 2) abra o prompt e vá até a pasta bin da instalação do mongodb, um exemplo de posição default dessa pasta "C:\Program Files\MongoDB\Server\4.4\bin"
 3) execute o comando 
-	> mongod --dbpath D:\Documentos\UTFPR\2020-2\Web\projeto1_EC38B\Projeto3\api\data e execute o comando
+	> mongod --dbpath D:\Documentos\UTFPR\2020-2\Web\projeto1_EC38B\Projeto3\api\data (endereço de minha máquina) e execute o comando
 4) com sucesso, abra outro prompt e vá até a pasta bin do mongodb e execute o comando
 	> mongo
 Com isso conseguiremos criar tabelas e usar o banco
