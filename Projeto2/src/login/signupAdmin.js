@@ -7,7 +7,7 @@ function initialState() {
   return { user: "", password: "" };
 }
 
-export default function SignUp() {
+export default function SignUpAdmin() {
   const [values, setValues] = useState(initialState);
   const [error, setError] = useState(0);
   const [errorCreate, setErrorCreate] = useState(0);
@@ -26,7 +26,7 @@ export default function SignUp() {
 
   async function signup({ user, password }) {
     try {
-      const token = await axios.post("http://localhost:4200/api/register", values);
+      const token = await axios.post("http://localhost:4200/api/adm/register", values);
       // const token = await axios.post("https://reqres.in/api/register", values);
       console.log(token);
       return token;
@@ -49,7 +49,7 @@ export default function SignUp() {
       if (token !== undefined) {
         setError('')
         setSuccess('')
-        setSuccess('Usuário cadastrado com sucesso!')
+        setSuccess('Usuário Administrador cadastrado com sucesso!');
         setTimeout(() => {return history.push("/login");}, 2000)
         
       } else {

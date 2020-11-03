@@ -27,9 +27,9 @@ function LojaPokemon() {
     });
     if (novoPokemon) {
       objCarrinho.pokemons.push({
-        pokemon: pokemon,
+        pokemon: pokemon.name,
         quantidade: 1,
-        preco: "5.00",
+        preco: parseFloat(pokemon.preco).toFixed(2),
       });
     }
     setCarrinho(objCarrinho);
