@@ -1,4 +1,4 @@
-# projeto1_EC38B
+# projeto_EC38B
 - Projeto da disciplina de Programação Web, curso Engenharia da Computação - UTFPR/CP - 2020/02 EAD.
 
 O aplicativo criado tem como recurso, mostrar as funcionalidades de uma aplicação front-end ReactJS fazendo a conexão com uma ApiRest em express.js. O aplicativo simula uma loja Pokemon onde só usuários autenticados conseguem ter acesso, através de uma atenticação do back-end.
